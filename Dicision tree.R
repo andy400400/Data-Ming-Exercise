@@ -6,7 +6,7 @@ set.seed(1111)
 cart = rpart(type~.,Pima.tr,control = rpart.control(cp = 0))
 summary(cart)
 #plot
-#Á×§K¹Ï¤ù¶W¥X
+#é¿å…åœ–ç‰‡è¶…å‡º
 par(xpd = TRUE);plot(cart);text(cart)
 #pruning
 cart_prune = prune(cart, cp=0.03)
@@ -21,7 +21,7 @@ accuraty
 library(C50)
 library(MASS)
 data("Pima.tr")
-#noGlobalPruning = F ·|¶i¦æpruning
+#noGlobalPruning = F æœƒé€²è¡Œpruning
 C50_tree = C5.0(type~.,Pima.tr,control = C5.0Control(noGlobalPruning = F))
 summary(C50_tree)
 par(xpd = TRUE);plot(C50_tree);text(C50_tree)

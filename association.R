@@ -5,19 +5,19 @@ IncomeESL <- IncomeESL[complete.cases(IncomeESL),]
 #view information
 dim(IncomeESL)
 colnames(IncomeESL)
-#Âà´«¬°¥i¥H¶i¦æÃöÁp¤ÀªRªºtransactionsª«¥ó
+#è½‰æ›ç‚ºå¯ä»¥é€²è¡Œé—œè¯åˆ†æçš„transactionsç‰©ä»¶
 Income <- as(IncomeESL,"transactions")
 summary(Income)
-#¥X²{ÀW²v
+#å‡ºç¾é »ç‡
 sort(itemFrequency(Income),decreasing = T)
 itemFrequencyPlot(Income,support = 0.2 ,cex.names = 0.8)
-#³]©wªùÂe
+#è¨­å®šé–€æª»
 rules <- apriori(Income, parameter =  list(support = 0.1 , confidence = 0.6))
 summary(rules)
 plot(rules, measure = c("confidence","lift"), shading = "support")
 plot(rules, method = "grouped")
-#outcome¬°householder status=own
+#outcomeç‚ºhouseholder status=own
 rulesOwn <- subset(rules, subset = rhs %in% "householder status=own" & lift > 1)
 inspect(head(sort(rulesOwn,by = "support") , n = 5))
-#§ä¥X¼W¯q¤p©ó1
+#æ‰¾å‡ºå¢ç›Šå°æ–¼1
 rulesOwn <- subset(rules, lift > 1)

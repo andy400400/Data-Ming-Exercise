@@ -15,7 +15,7 @@ for(i in 1:7){
 level_name = data.frame(level_name)
 row.names(level_name) = colnames(Pima)[1:7]
 colnames(level_name)= paste("L",1:2,sep = "")
-#Â÷´²¤ÆÄÝ©Ê¤ô·Ç
+#é›¢æ•£åŒ–å±¬æ€§æ°´æº–
 level_name
 #set training data and testing data
 Pima.tr = Pima[1:200,]
