@@ -14,4 +14,3 @@ plot(Pima_som, type = "dist.neighbours")
 plot(Pima_som, type = "codes")
 #各輸出神經元所包含之樣本數
 plot(Pima_som, type = "counts")
-
