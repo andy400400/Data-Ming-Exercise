@@ -1,6 +1,7 @@
 library(MASS)
 data("Pima.tr")
 Pima_class <- rbind(Pima.tr,Pima.te)[,8]
+#z-score
 Pima <- scale(rbind(Pima.tr,Pima.te)[,-8])
 library(kohonen)
 set.seed(1111)
