@@ -18,7 +18,7 @@ table_summary
 label_vector <- encodeClassLabels(model$fitted.values)
 #want to see label
 label <- 7
-#plot or list
+#plot or list (raw < 9)
 if(table_summary[[1]] < 9){
   for (x in 1:length(label_vector)) {
     if(label_vector[x] == label){
@@ -26,9 +26,10 @@ if(table_summary[[1]] < 9){
     }
   }
 }else{
+  a <- NULL
   for (x in 1:length(label_vector)) {
     if(label_vector[x] == label){
-      a<-c(a,x)
+      a <- c(a,x)
     }
   }
 }
