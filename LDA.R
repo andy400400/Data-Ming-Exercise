@@ -1,18 +1,19 @@
 library(kknn)
 data(miete)
-#分層抽樣
+#Stratified Random sampling
 library(sampling)
+#2/3 data to training ,5 group
 n <- round(2/3*nrow(miete)/5)
 sub_train <- strata(miete, stratanames = "nmkat", size = rep(n,5), method = "srswor")
-#修改function
+#edit getdata function
 data_train <- qwe(miete[,c(-1,-3,-12)], sub_train$ID_unit)
 data_test <- miete[ -sub_train$ID_unit,c(-1,-3,-12)]
 dim(data_train)
 dim(data_test)
+#Linear Discriminant Analysis,LDA
 library(MASS)
 fit_lda_1 <- lda(nmkat~.,data_train)
 names(fit_lda_1)
-fit_lda_1$means
 plot(fit_lda_1)
 #
 pre_lad_1 <- predict(fit_lda_1,data_test)
