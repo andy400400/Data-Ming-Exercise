@@ -3,6 +3,10 @@ library(rpart)
 data("Pima.tr")
 summary(Pima.tr)
 set.seed(1111)
+#minsplit:min sample of each node
+#cp:complexity parameter
+#minbucket:min sample of each leaf
+#maxdepth:control tree high
 cart = rpart(type~.,Pima.tr,control = rpart.control(cp = 0))
 summary(cart)
 #plot
