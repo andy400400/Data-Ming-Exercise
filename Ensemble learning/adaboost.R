@@ -8,15 +8,15 @@ sub <- sample(nrow(bank_data),round(nrow(bank_data)/4))
 bank_train <- bank_data[-sub,]
 bank_test <- bank_data[sub,]
 #mfinal : count of decide tree
-bag_1 <- bagging(y~., bank_train, mfinal = 5)
-names(bag_1)
+boo_1 <- boosting(y~., bank_train, mfinal = 5)
+names(boo_1)
 #predict
-bag_2_pre <- predict(bag_1, bank_test)
-names(bag_2_pre)
-bag_2_pre$class[11:20]
-bag_2_pre$confusion
-bag_2_pre$error
+boo_1_pre <- predict(boo_1, bank_test)
+names(boo_1_pre)
+boo_1_pre$class[11:20]
+boo_1_pre$confusion
+boo_1_pre$error
 #vote,prob,class
 sort(bag_1$importance)
-bag_2 <- bagging(y~., bank_train, mfinal = 5, control = rpart.control(maxdepth = 3))
+boo_2 <- bagging(y~., bank_train, mfinal = 5, control = rpart.control(maxdepth = 3))
 
